@@ -85,12 +85,25 @@ ACE K2 is an architecture, not a claim that this exact hardware is required.
 
 ---
 
+## AMD Strix Halo / MIOpen case study
+
+ACE was applied to an existing public Windows/gfx1151 MIOpen Conv3d issue on Strix Halo. A reduced LTX-style stage-3 workload reproduced a size-dependent failure boundary: a tile-256 control completed with the MIOpen-backed path enabled, while the matched tile-512 case terminated. The same tile-512 geometry completed with `torch.backends.cudnn.enabled = False`, providing a scoped experimental workaround candidate and evidence relevant to the upstream investigation.
+
+The workaround is **not presented as an upstream fix or a confirmed mitigation**. The ACE evaluation remained **INCONCLUSIVE** because repeated validation and numerical-equivalence testing against a declared tolerance were not completed.
+
+- **Technical white paper:** https://doi.org/10.5281/zenodo.23158752
+- **GitHub landing page:** [MIOpen Conv3d Failure on AMD Strix Halo under Windows](papers/MIOpen_Conv3d_Strix_Halo_White_Paper_v1.0.md)
+- **Upstream issue:** https://github.com/ROCm/TheRock/issues/5845
+
+---
+
 ## Read the work
 
 **ACE K2 White Paper v1.2 — Current Capabilities Edition**  
 Nigel Hutchinson / NH Applied, September 2026
 
 - **White paper:** https://doi.org/10.5281/zenodo.22869831
+- **MIOpen Conv3d Strix Halo case study:** https://doi.org/10.5281/zenodo.23158752
 - **Project overview:** https://nhapplied.co.uk/ace.html
 - **Hugging Face:** https://huggingface.co/spaces/nh-applied/ACE-K2
 - **NH Applied:** https://nhapplied.co.uk/
