@@ -97,12 +97,32 @@ The workaround is **not presented as an upstream fix or a confirmed mitigation**
 
 ---
 
+## AMD ROCm #12571 validation case study
+
+ACE K2 independently built and physically validated a source-level correction for **ROCm/rocm-systems issue #12571**, a Windows PAL/SDMA stream-ordering fault in which an SDMA copy issued after `hipEventRecord` can race earlier compute on the same stream and return stale data.
+
+Using matched TheRock/rocm-systems source provenance and the same Windows HIP build route, ACE performed a forced-pristine versus forced-patched causal A/B test on **gfx1151 / Radeon 8060S**, with SDMA enabled in both cases.
+
+- **Pristine build:** targeted read cell reproduced **STALE 50/50**, with the other five controls clean.
+- **Patched build:** **all six cells clean 50/50**.
+- **Independent evaluator:** **ACCEPT / PATCH_VALIDATED_SDMA_ENABLED**.
+
+The ACE implementation is not source-identical to AMD PR #12952. Both approaches preserve compute-event state across the relevant flush, but ACE uses the retained `lastComputeEvent_` directly for the compute-idle fence, while the AMD implementation preserves the existing live-event path and uses the retained event as a fallback.
+
+The result is deliberately bounded to the tested Windows gfx1151 environment, matched source/runtime revision and governed #12571 reproducer matrix. It is **not** a claim of universal correctness across ROCm platforms or releases.
+
+- **Validation report:** https://doi.org/10.5281/zenodo.23267518
+- **Upstream issue:** https://github.com/ROCm/rocm-systems/issues/12571
+
+---
+
 ## Read the work
 
 **ACE K2 White Paper v1.2 — Current Capabilities Edition**  
 Nigel Hutchinson / NH Applied, September 2026
 
 - **White paper:** https://doi.org/10.5281/zenodo.22869831
+- **ROCm #12571 source-level fix validation:** https://doi.org/10.5281/zenodo.23267518
 - **MIOpen Conv3d Strix Halo case study:** https://doi.org/10.5281/zenodo.23158752
 - **Project overview:** https://nhapplied.co.uk/ace.html
 - **Hugging Face:** https://huggingface.co/spaces/nh-applied/ACE-K2
