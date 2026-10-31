@@ -39,6 +39,20 @@ Separate controls qualify tools, validate outputs, preserve evidence, control re
 
 ---
 
+## Latest publication
+
+### ACE K2 — The Second Major Capability Era
+
+The late-October ACE state marks a distinct capability boundary from the September governed-autonomy baseline. ACE is increasingly becoming an instrument of its own engineering development: real projects expose weaknesses, ACE helps diagnose and engineer candidate repairs, tests them, preserves the evidence, and submits the result to independent evaluator/controller mechanisms rather than allowing the proposing worker or Manager to approve its own change.
+
+The governing boundaries and authority model were established before September and remain unchanged. Subsequent repairs and improvements do not require case-by-case human direction or approval; qualification and terminal acceptance remain with ACE’s independent evaluator/controller mechanisms.
+
+- **Technical note:** https://doi.org/10.5281/zenodo.23836829
+- **GitHub paper landing page:** [ACE K2 — The Second Major Capability Era](papers/ACE_K2_Second_Major_Capability_Era_v1.0.md)
+- **Project overview:** https://nhapplied.co.uk/ace.html
+
+---
+
 ## Demonstrated capabilities
 
 | Evidence | Demonstrated result |
@@ -117,6 +131,12 @@ The result is deliberately bounded to the tested Windows gfx1151 environment, ma
 ---
 
 ## Read the work
+
+**ACE K2 — The Second Major Capability Era**  
+Nigel Hutchinson / NH Applied, October 2026
+
+- **Second Major Capability Era technical note:** https://doi.org/10.5281/zenodo.23836829
+- **GitHub paper landing page:** [ACE K2 — The Second Major Capability Era](papers/ACE_K2_Second_Major_Capability_Era_v1.0.md)
 
 **ACE K2 White Paper v1.2 — Current Capabilities Edition**  
 Nigel Hutchinson / NH Applied, September 2026
